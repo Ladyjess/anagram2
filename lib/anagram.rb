@@ -1,15 +1,19 @@
 class String
   define_method(:anagram) do |word_list|
-    anagrams = []
+    word_array = []
+    anagram_array = []
+
     word_list.each() do |word|
-      if self.split('').sort.join.downcase == word.split('').sort.join.downcase
-        anagrams.push(word)
+      word_array = word.downcase.split(//)
+      if word_array.all? { |char| self.downcase.include?(char) }
+        anagram_array.push(word)
       end
     end
-    if anagrams.length() == 0
+    
+    if anagram_array.length() == 0
       return "Please try again"
     else
-      anagrams
+      anagram_array
     end
   end
 end

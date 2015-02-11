@@ -4,12 +4,12 @@ also_reload('lib/**/*.rb')
 require ('./lib/anagram')
 
 get('/') do
-  erb(:forms)
+  erb(:form)
 end
 
 get('/anagram_solution') do
-  @first_word = params.fetch('first_word')
-  @other_words = params.fetch('other_words')
-  @solution = @first_word.anagram(@other_words)
+  @word = params.fetch('word')
+  @next_word = params.fetch('next_word')
+  @solution = @word.anagram(@next_word)
   erb(:anagram_solution)
 end
